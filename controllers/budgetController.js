@@ -4,11 +4,12 @@ const { v4: uuidv4 } = require("uuid");
 
 let budgetModel = require("../models/budgetModel");
 
+// READ ONLY
 router.get("/", (req, res) => {
   res.json(budgetModel);
 });
-
-router.get("/get-item-by-id/:id", (req, res) => {
+// READ ONLY BY ID
+router.get("/:id", (req, res) => {
   const { id } = req.params;
 
   const match = budgetModel.find((item) => item.id === id);
@@ -23,7 +24,8 @@ router.get("/get-item-by-id/:id", (req, res) => {
   }
 });
 
-router.post("/create-budget-item", (req, res) => {
+// CREATE NEW BUDGET ITEM
+router.post("/", (req, res) => {
   const { budgetItem } = req.body;
 
   if (!budgetItem) {
@@ -34,7 +36,7 @@ router.post("/create-budget-item", (req, res) => {
   } else {
     const newBudgetItem = {
       id: uuidv4(),
-      todo,
+      budgetItem,
       done: false,
     };
 
@@ -44,7 +46,8 @@ router.post("/create-budget-item", (req, res) => {
   }
 });
 
-router.delete("/delete-budget-item-by-id/:id", (req, res) => {
+// DELETE BUDGET ITEM BY ID
+router.delete("/:id", (req, res) => {
   const { id } = req.params;
 
   let foundIndex = budgetModel.findIndex((item) => item.id === id);
@@ -68,6 +71,7 @@ router.delete("/delete-budget-item-by-id/:id", (req, res) => {
   }
 });
 
+// UPDATE BUDGET ITEM BY ID
 router.put("/update-budget-item-by-id/:id", (req, res) => {
   const id = req.params.id;
   const foundIndex = budgetModel.findIndex((item) => item.id === id);
