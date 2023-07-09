@@ -1,6 +1,8 @@
+const { v4: uuidv4 } = require("uuid");
+
 const budgetModel = [
   {
-    id: "ec15e474-0782-40cd-8a5f-fc878380b578",
+    id: uuidv4(),
     item_name: "Monthly Income",
     amount: 10000,
     date: "2023-06-01",
@@ -8,7 +10,7 @@ const budgetModel = [
     category: "Income",
   },
   {
-    id: "cb5be000-c6f6-47a9-af27-9788d3830fed",
+    id: uuidv4(),
     item_name: "Monthly Savings",
     amount: 3666.67,
     date: "2023-06-01",
@@ -16,7 +18,7 @@ const budgetModel = [
     category: "Savings",
   },
   {
-    id: "df4fbb5f-6a73-44a2-b4a5-7894513ac5ad",
+    id: uuidv4(),
     item_name: "Rent",
     amount: -3500,
     date: "2023-06-01",
@@ -24,7 +26,7 @@ const budgetModel = [
     category: "Bills",
   },
   {
-    id: "f375d95d-286e-4e06-8f0b-70f24ab41023",
+    id: uuidv4(),
     item_name: "Car Payment",
     amount: -500,
     date: "2023-06-02",
@@ -32,7 +34,7 @@ const budgetModel = [
     category: "Bills",
   },
   {
-    id: "bee5c26a-e952-491a-b2b6-af19c6768fea",
+    id: uuidv4(),
     item_name: "Car Insurance",
     amount: -247.35,
     date: "2023-06-02",
@@ -40,7 +42,7 @@ const budgetModel = [
     category: "Bills",
   },
   {
-    id: "ef65e746-bb22-469e-8bdc-2f77cee88143",
+    id: uuidv4(),
     item_name: "Weekly Groceries",
     amount: -193.73,
     date: "2023-06-03",
@@ -48,7 +50,7 @@ const budgetModel = [
     category: "Groceries",
   },
   {
-    id: "65703ac8-a719-4e64-ad8d-7372759c1310",
+    id: uuidv4(),
     item_name: "Gas",
     amount: -76.29,
     date: "2023-06-03",
@@ -56,7 +58,7 @@ const budgetModel = [
     category: "Travel",
   },
   {
-    id: "439ce507-275d-435a-8dd9-478abb79d182",
+    id: uuidv4(),
     item_name: "Pizza and Lava Cake",
     amount: -33.92,
     date: "2023-06-05",
@@ -64,7 +66,7 @@ const budgetModel = [
     category: "Casual Dining",
   },
   {
-    id: "9c6bcec7-066e-41dd-9986-05bdacf1984a",
+    id: uuidv4(),
     item_name: "Weekly Groceries",
     amount: -187.54,
     date: "2023-06-10",
@@ -72,7 +74,7 @@ const budgetModel = [
     category: "Groceries",
   },
   {
-    id: "ca9e8d4e-cdf3-481e-bd9f-5415b256dbb1",
+    id: uuidv4(),
     item_name: "Gas",
     amount: -72.41,
     date: "2023-06-10",
@@ -80,7 +82,7 @@ const budgetModel = [
     category: "Travel",
   },
   {
-    id: "b050b605-b34b-440c-843e-8bce1d2ef980",
+    id: uuidv4(),
     item_name: "Clothes and Shoes",
     amount: -198.23,
     date: "2023-06-13",
@@ -88,7 +90,7 @@ const budgetModel = [
     category: "Casual Shopping",
   },
   {
-    id: "d3f836fd-3a8a-4780-bbac-3559b61db10a",
+    id: uuidv4(),
     item_name: "Weekly Groceries",
     amount: -195.29,
     date: "2023-06-17",
@@ -96,7 +98,7 @@ const budgetModel = [
     category: "Groceries",
   },
   {
-    id: "d77eff29-d815-475c-bbd2-7f4b5c2728d5",
+    id: uuidv4(),
     item_name: "Gas",
     amount: -63.47,
     date: "2023-06-17",
@@ -104,3 +106,5 @@ const budgetModel = [
     category: "Travel",
   },
 ];
+
+module.exports = budgetModel;

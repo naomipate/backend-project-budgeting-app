@@ -8,6 +8,7 @@ let budgetModel = require("../models/budgetModel");
 router.get("/", (req, res) => {
   res.json(budgetModel);
 });
+
 // READ ONLY BY ID
 router.get("/:id", (req, res) => {
   const { id } = req.params;
