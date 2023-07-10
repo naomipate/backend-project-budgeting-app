@@ -26,7 +26,7 @@ router.get("/:id", (req, res) => {
 });
 
 // CREATE NEW BUDGET ITEM
-router.post("/", (req, res) => {
+router.post("/new", (req, res) => {
   const { budgetItem } = req.body;
 
   if (!budgetItem) {
