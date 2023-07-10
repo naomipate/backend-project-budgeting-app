@@ -21,7 +21,7 @@ router.get("/:id", (req, res) => {
       message: "Id not found",
     });
   } else {
-    res.json({ status: true, data: match });
+    res.json(match);
   }
 });
 
