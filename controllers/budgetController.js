@@ -70,7 +70,6 @@ router.delete("/:id", (req, res) => {
 // UPDATE BUDGET ITEM BY ID
 router.put("/:id", (req, res) => {
   const id = req.params.id;
-  console.log(id);
   const foundIndex = budgetModel.findIndex((item) => item.id === id);
 
   if (foundIndex === -1) {
