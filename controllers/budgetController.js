@@ -21,14 +21,13 @@ router.get("/:id", (req, res) => {
       message: "Id not found",
     });
   } else {
-    res.json({ status: true, data: match });
+    res.json(match);
   }
 });
 
 // CREATE NEW BUDGET ITEM
 router.post("/", (req, res) => {
   const budgetItem = req.body;
-  console.log(budgetItem);
 
   if (!budgetItem) {
     res.status(400).json({
@@ -38,13 +37,12 @@ router.post("/", (req, res) => {
   } else {
     const newBudgetItem = {
       id: uuidv4(),
-      budgetItem,
-      done: false,
+      ...budgetItem,
     };
-
+    console.log("This is working", newBudgetItem);
     budgetModel.push(newBudgetItem);
 
-    res.status(201).json({ status: true, data: newBudgetItem });
+    res.status(201).json(newBudgetItem);
   }
 });
 
@@ -65,17 +63,14 @@ router.delete("/:id", (req, res) => {
 
     budgetModel = newBudget;
 
-    res.json({
-      status: true,
-      message: "success",
-      data: foundBudgetItem,
-    });
+    res.json(foundBudgetItem);
   }
 });
 
 // UPDATE BUDGET ITEM BY ID
-router.put("/update-budget-item-by-id/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   const id = req.params.id;
+  console.log(id);
   const foundIndex = budgetModel.findIndex((item) => item.id === id);
 
   if (foundIndex === -1) {
@@ -90,8 +85,12 @@ router.put("/update-budget-item-by-id/:id", (req, res) => {
 
     budgetModel.splice(foundIndex, 1, newObj);
 
-    res.json({ message: "success", status: true, data: newObj });
+    res.json(newObj);
   }
+});
+
+router.get("*", (req, res) => {
+  res.status(404).json({ message: "page not found" });
 });
 
 module.exports = router;
